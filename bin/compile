@@ -3,14 +3,13 @@
 BUILD_DIR=$1
 GIT_URL="https://github.com/do-aki/phpast"
 
-
+echo "-----> Install phpast in ${BUILD_DIR}"
 cd $BUILD_DIR
-echo $BUILD_DIR
 git clone ${GIT_URL} phpast
 
 cd phpast
 phpize
-./configure
+./configure > configure.log
 make
 
 cp modules/phpast.so `php-config --extension-dir`
