@@ -1,0 +1,14 @@
+#!/bin/sh
+
+GIT_URL="https://github.com/do-aki/phpast"
+
+rm -rf phpast
+git clone ${GIT_URL} phpast
+
+cd phpast
+phpize
+./configure
+make
+
+echo "extension=/app/phpast/modules/phpast.so" > /app/.heroku/php/etc/php/conf.d/phpast.conf
+
