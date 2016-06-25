@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "release"
-exit 0
+echo "--- {}"
+
