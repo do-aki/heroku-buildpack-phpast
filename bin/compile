@@ -1,8 +1,11 @@
 #!/bin/sh
 
+BUILD_DIR=$1
 GIT_URL="https://github.com/do-aki/phpast"
 
-rm -rf phpast
+
+cd $BUILD_DIR
+echo $BUILD_DIR
 git clone ${GIT_URL} phpast
 
 cd phpast
@@ -10,5 +13,6 @@ phpize
 ./configure
 make
 
-echo "extension=/app/phpast/modules/phpast.so" > /app/.heroku/php/etc/php/conf.d/phpast.conf
+cp modules/phpast.so `php-config --extension-dir`
+echo "extension=phpast.so" > /app/.heroku/php/etc/php/conf.d/phpast.conf
 
