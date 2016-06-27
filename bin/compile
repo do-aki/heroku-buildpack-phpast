@@ -13,5 +13,5 @@ phpize
 make
 
 cp modules/phpast.so `php-config --extension-dir`
-echo "extension=phpast.so" > /app/.heroku/php/etc/php/conf.d/phpast.conf
+echo "extension=phpast.so" > /app/.heroku/php/etc/php/conf.d/phpast.ini
 
